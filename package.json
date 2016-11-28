@@ -1,0 +1,26 @@
+{
+  "name": "gameplate",
+  "version": "1.0.0",
+  "description": "A simple starter template for building games in Phaser with node.js tooling.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "css-loader": "^0.26.0",
+    "eslint": "^3.11.0",
+    "express": "^4.14.0",
+    "phaser": "^2.6.2",
+    "sass-loader": "^4.0.2",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.3",
+    "webpack-dev-server": "^1.16.2",
+    "yarn": "^0.17.9"
+  },
+  "devDependencies": {
+    "eslint": "^3.11.0",
+    "eslint-config-google": "^0.7.1"
+  }
+}

@@ -1,0 +1,11 @@
+#windows
+desktop.ini
+
+# Node stuff
+npm-debug.log*
+node_modules
+yarn-error.log*
+
+# Built files
+dist/js
+.tmp
