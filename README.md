@@ -1,6 +1,6 @@
 # Another Phaser Boilerplate
 
-Phaser Jumpstart is a starting template for game development using [Phaser.](http://phaser.io/)
+Phaser Jump is a starting template for game development using [Phaser.](http://phaser.io/)
 
 ## Technologies
 this project relies on the following technologies and packages
