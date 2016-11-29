@@ -1,26 +1,36 @@
 {
-  "name": "gameplate",
+  "name": "phaser-jump",
   "version": "1.0.0",
   "description": "A simple starter template for building games in Phaser with node.js tooling.",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "START webpack --progress --colors --watch --config=config/webpack.dev.config.js",
+    "postdev": "browser-sync start --server --ss dist/ --port 3000 -f \"dist/*.* "
   },
-  "author": "",
+  "author": "Jacob Davison",
   "license": "MIT",
   "dependencies": {
+    "babel-core": "^6.18.2",
+    "babel-loader": "^6.2.8",
+    "babel-preset-es2015": "^6.18.0",
+    "browser-sync": "^2.18.2",
     "css-loader": "^0.26.0",
     "eslint": "^3.11.0",
+    "eslint-loader": "^1.6.1",
     "express": "^4.14.0",
+    "node-sass": "^3.13.0",
     "phaser": "^2.6.2",
     "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.3",
-    "webpack-dev-server": "^1.16.2",
+    "webpack-notifier": "^1.4.1",
     "yarn": "^0.17.9"
   },
   "devDependencies": {
     "eslint": "^3.11.0",
-    "eslint-config-google": "^0.7.1"
+    "eslint-config-google": "^0.7.1",
+    "eslint-config-standard": "^6.2.1",
+    "eslint-plugin-promise": "^3.4.0",
+    "eslint-plugin-standard": "^2.0.1"
   }
 }

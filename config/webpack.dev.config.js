@@ -1,71 +1,74 @@
-function devConfig(){
-    const path = require("path");
-    const webpack = require("webpack");
-    const WebpackNotifierPlugin = require("webpack-notifier");
+function devConfig () {
+  const path = require('path')
+  const webpack = require('webpack')
+  const WebpackNotifierPlugin = require('webpack-notifier')
 
-    const srcDir = path.join(process.cwd(), "src");
-    const distDir = path.join(process.cwd(), "dist");
-    const distJsDir = path.join(distDir, "js");
+  const srcDir = path.join(process.cwd(), 'src')
+  const distDir = path.join(process.cwd(), 'dist')
+  const distJsDir = path.join(distDir, 'js')
 
-    /// PLUGINS ///
+  // PLUGINS //
 
-    const plugins = [
-      // Growl notifications
-      new WebpackNotifierPlugin(),
-      new webpack.DefinePlugin({
-        "proccess.env": {
-          "NODE_ENV": '"dev"'
-        }
-      })
-    ];
+  const plugins = [
+    // Growl notifications
+    new WebpackNotifierPlugin(),
+    new webpack.DefinePlugin({
+      'proccess.env': {
+        'NODE_ENV': '"dev"'
+      }
+    })
+  ]
 
-    /// MODULES (LOADERS) ///
+  // MODULES (LOADERS) //
 
-    const modules = {
-      preLoaders: [{
-        // ESLint
+  const modules = {
+     preLoaders: [
+      {
         test: /\.jsx?$/,
-        loader: "eslint-loader",
-        exclude: [
-          /node_modules/,
-        ],
-      }],
-
-      loaders: [{
+        loader: "eslint-loader?{rules:{semi:0}}",
+        exclude: /node_modules/,
+      },
+    ],
+    loaders: [
+      {
         // Babel
         test: /\.jsx?$/,
         exclude: [
-          /node_modules/,
+          /node_modules/
         ],
-        loader: "babel",
-      }],
-    };
+        loader: 'babel-loader',
+        query: {
+          presets: ['es2015']
+        }
+      }
+    ]
+  }
 
-    /// CONFIG ///
+  // CONFIG //
 
   return {
-    cache: true,
     debug: true,
-    devtool: "eval",
+    devtool: 'eval',
     entry: {
-      index: path.join(srcDir, "index")
+      index: path.join(srcDir, 'index')
     },
     output: {
-      path: distJsDir,
-      filename: `[name].bundle.js`,
-      chunkFilename: "[id].bundle.js"
+      path: distDir,
+      publicPath: 'js/',
+      filename: `bundle.js`,
+      chunkFilename: '[id].bundle.js'
     },
     resolve: {
-      extensions: ["", ".js"],
-      root: [srcDir],
+      extensions: ['', '.js'],
+      root: [srcDir]
     },
     eslint: {
       emitError: true,
-      emitWarning: true,
+      emitWarning: true
     },
     module: modules,
-    plugins: plugins,
+    plugins: plugins
   };
-  }
-
 }
+
+module.exports = devConfig();

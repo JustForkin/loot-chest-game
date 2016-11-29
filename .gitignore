@@ -7,5 +7,5 @@ node_modules
 yarn-error.log*
 
 # Built files
-dist/js
+dist/
 .tmp
