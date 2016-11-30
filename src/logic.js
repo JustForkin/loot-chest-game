@@ -1,6 +1,6 @@
 // mods by Patrick OReilly
 // twitter: @pato_reilly
-class MyNewGame {
+export default class MyNewGame {
   constructor(){
     this.game = new window.Phaser.Game(800, 600, window.Phaser.CANVAS, 'phaser-example', { preload: this.preload, create: this.create, update: this.pdate, render: this.render });
     this.player;
@@ -51,8 +51,13 @@ class MyNewGame {
     // Enable input.
     this.player.inputEnabled = true;
     this.player.input.start(0, true);
-    this.player.events.onInputDown.add(this.set(this.player),this);
-    this.player.events.onInputUp.add(this.launch, this);
+    this.player.events.onInputDown.add(() => {
+      console.log(this);
+      this.set();
+    }, this);
+    this.player.events.onInputUp.add(() => {
+      this.launch();
+    });
 
     this.game.camera.follow(this.player, window.Phaser.Camera.FOLLOW_TOPDOWN);
 
@@ -114,4 +119,3 @@ class MyNewGame {
 
   }
 };
-module.exports = new MyNewGame();

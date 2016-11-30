@@ -66,13 +66,13 @@ function devConfig () {
     debug: true,
     //devtool: 'sourceMap',
     entry: {
-      game:"./src/game.js"
+      index:"./src/index.js"
     },
     output: {
       path: path.join(distDir,'js/'),
       publicPath: "js/",
-      filename: `[name].bundle.js`,
-      chunkFilename: '[name].[id].bundle.js'
+      filename: '[name].bundle.js',
+      chunkFilename: '[id].bundle.js'
     },
     resolve: {
       extensions: ['', '.js'],

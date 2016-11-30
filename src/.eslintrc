@@ -1,4 +1,9 @@
 {
+  "parser": "babel-eslint",
+   "parserOptions": {
+      "sourceType": "module",
+      "allowImportExportEverywhere": false
+    },
   "env": {
     "browser": true,
     "node": true,
@@ -7,6 +12,7 @@
   },
   "rules": {
     // Style / cleanliness
+    "strict":0,
     "indent": ["error", 2, { "SwitchCase": 1 }],
     "no-var": ["error"],
     "arrow-parens": ["error"],
