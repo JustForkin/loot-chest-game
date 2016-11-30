@@ -72,13 +72,15 @@ function devConfig () {
       path: path.join(distDir,'js/'),
       publicPath: "js/",
       filename: `[name].bundle.js`,
-      chunkFilename: '[id].bundle.js'
+      chunkFilename: '[name].[id].bundle.js'
     },
     resolve: {
       extensions: ['', '.js'],
       root: [
             path.resolve('./node_modules'),
+            path.resolve('./src')
             ],
+      modulesDirectories: ["src","node_modules"],
       alias:{
         'phaser':phaser,
         'pixi.js':pixi,
