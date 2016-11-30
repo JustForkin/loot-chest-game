@@ -1,6 +1,6 @@
 require('./scss/main.scss');
 require.ensure('game',(g) => {
-  window.game = require('game');
+  const game = require('game');
   done();
   console.log(g);
 });

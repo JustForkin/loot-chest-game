@@ -3,12 +3,53 @@
     and make the world a better place.
 
 */
+//import dependencies
+@import '~include-media/dist/_include-media.scss';
 
+//COLOR PALETTE
+$blue-green: #267689;
+$blue-green-light: #65AEB5;
+$blue-green-dark: #04545B;
+
+$green: #29AE39;
+$green-light: #75D581;
+$green-dark: #047312;
+
+$blue: #314C97;
+$blue-light: #7489C1;
+$blue-dark: #0E2564;
+
+//MEDIA QUERY BREAKPOINTS
+$breakpoints:(
+        phone: 640px, 
+        tablet: 768px, 
+        desktop: 1024px
+        ) !default;
+
+@include media(">=phone", "<tablet") {
+    body{
+        padding-left:10%;
+        padding-right:10%;
+    }
+}
+
+@include media(">=tablet", "<=950px") {
+        padding-left:20%;
+        padding-right:20%;
+}
+@include media(">=desktop") {
+        padding-left:30%;
+        padding-right:30%;
+}
 
 body{
-        background-color:lightskyblue;
-        font:arial;
-        .wrapper{
-            border:1px solid white;
-        }
+    background-color:lightskyblue;
+    font:arial;
+    padding:20px 35%;
+    .wrapper{
+        margin:0 15%;
+        display:flex;
+        justify-content:center;
+        align-items:center;
     }
+}
