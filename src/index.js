@@ -1,8 +1,8 @@
 require('./scss/main.scss');
-
-require(['script!pixi.js','script!p2','script!phaser'],() => {
-  window.MyNewGame = require('logic');
+require.ensure('game',(g) => {
+  window.game = require('game');
   done();
+  console.log(g);
 });
 
 function done() {

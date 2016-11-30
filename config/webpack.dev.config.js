@@ -66,7 +66,8 @@ function devConfig () {
     debug: true,
     //devtool: 'sourceMap',
     entry: {
-      index:"./src/index.js"
+      index:"./src/index.js",
+      game:['./src/game.js']
     },
     output: {
       path: path.join(distDir,'js/'),
