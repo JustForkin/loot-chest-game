@@ -1,12 +1,13 @@
 function devConfig () {
-  const path = require('path')
-  const webpack = require('webpack')
-  const WebpackNotifierPlugin = require('webpack-notifier')
-
-  const srcDir = path.join(process.cwd(), 'src')
-  const distDir = path.join(process.cwd(), 'dist')
-  const distJsDir = path.join(distDir, 'js')
-  const phaserModule = '../node_modules/phaser/';
+  const path = require('path');
+  const webpack = require('webpack');
+  const WebpackNotifierPlugin = require('webpack-notifier');
+  const ExtractTextPlugin = require('extract-text-webpack-plugin');
+  // USEFUL PATHS //
+  const srcDir = path.join(process.cwd(), 'src');
+  const distDir = path.join(process.cwd(), 'dist');
+  const distJsDir = path.join(distDir, 'js');
+  const phaserModule = path.join(process.cwd(), 'node_modules/phaser/');
   const phaser = path.join(phaserModule, 'build/custom/phaser-split.js'),
     pixi = path.join(phaserModule, 'build/custom/pixi.js'),
     p2 = path.join(phaserModule, 'build/custom/p2.js');
@@ -16,15 +17,14 @@ function devConfig () {
   const plugins = [
     // Growl notifications
     new WebpackNotifierPlugin(),
-    // new webpack.DefinePlugin({
-    //   'proccess.env': {
-    //     'NODE_ENV': '"dev"',
-    //   }
-    // }),
-    // new webpack.ContextReplacementPlugin(
-    //   /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
-    //   __dirname
-    // )
+    //dev settings
+    new webpack.DefinePlugin({
+      'proccess.env': {
+        'NODE_ENV': '"dev"',
+      }
+    }),
+    //css extractor
+    new ExtractTextPlugin('../css/main.css')
   ]
 
   // MODULES (LOADERS) //
@@ -50,10 +50,12 @@ function devConfig () {
         }
       },
       {
-        //SASS
+        // SASS
         test: /\.scss$/,
-        loader: 'sass-loader?sourceMap',
-        exclude: /node_modules/
+        loader: ExtractTextPlugin.extract(
+            'style', // backup loader when not building .css file
+            'css!sass' // loaders to preprocess CSS
+        )
       }
     ]
   }
@@ -64,11 +66,11 @@ function devConfig () {
     debug: true,
     //devtool: 'sourceMap',
     entry: {
-      app:"./app.js",
-      game:"./src/index.js"
+      game:"./src/game.js"
     },
     output: {
       path: path.join(distDir,'js/'),
+      publicPath: "js/",
       filename: `[name].bundle.js`,
       chunkFilename: '[id].bundle.js'
     },
