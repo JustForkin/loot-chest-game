@@ -1,8 +1,3 @@
-
-window.PIXI = require('phaser/build/custom/pixi');
-window.p2 = require('phaser/build/custom/p2');
-window.Phaser = require('phaser/build/custom/phaser-split');
-
-window.onload = function(){
-  console.log("its okay");
-};
+window.PIXI = require('pixi.js');
+window.p2 = require('p2');
+window.Phaser = require('phaser');

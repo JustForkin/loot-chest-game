@@ -4,8 +4,11 @@
   "description": "A simple starter template for building games in Phaser with node.js tooling.",
   "main": "app.js",
   "scripts": {
-    "dev": "START webpack --progress --colors --watch --config=config/webpack.dev.config.js",
-    "postdev": "browser-sync start --server --ss dist/ --port 3000 -f \"dist/*.* "
+    "packdev": "webpack --progress --colors --watch --config=config/webpack.dev.config.js",
+    "devserver": "browser-sync start --config config/bs-config.js",
+    "dev": "npm-run-all --parallel devserver packdev",
+    "bsync": "browser-sync init",
+    "build": "webpack --progress --colors -p --config=config/webpack.dev.config.js"
   },
   "author": "Jacob Davison",
   "license": "MIT",
@@ -19,6 +22,7 @@
     "eslint-loader": "^1.6.1",
     "express": "^4.14.0",
     "node-sass": "^3.13.0",
+    "npm-run-all": "^3.1.1",
     "phaser": "^2.6.2",
     "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",

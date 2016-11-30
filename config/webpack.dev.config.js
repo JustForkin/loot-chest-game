@@ -6,17 +6,25 @@ function devConfig () {
   const srcDir = path.join(process.cwd(), 'src')
   const distDir = path.join(process.cwd(), 'dist')
   const distJsDir = path.join(distDir, 'js')
+  const phaserModule = '../node_modules/phaser/';
+  const phaser = path.join(phaserModule, 'build/custom/phaser-split.js'),
+    pixi = path.join(phaserModule, 'build/custom/pixi.js'),
+    p2 = path.join(phaserModule, 'build/custom/p2.js');
 
   // PLUGINS //
 
   const plugins = [
     // Growl notifications
     new WebpackNotifierPlugin(),
-    new webpack.DefinePlugin({
-      'proccess.env': {
-        'NODE_ENV': '"dev"'
-      }
-    })
+    // new webpack.DefinePlugin({
+    //   'proccess.env': {
+    //     'NODE_ENV': '"dev"',
+    //   }
+    // }),
+    // new webpack.ContextReplacementPlugin(
+    //   /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
+    //   __dirname
+    // )
   ]
 
   // MODULES (LOADERS) //
@@ -26,7 +34,7 @@ function devConfig () {
       {
         test: /\.jsx?$/,
         loader: "eslint-loader?{rules:{semi:0}}",
-        exclude: /node_modules/,
+        exclude: /node_modules/
       },
     ],
     loaders: [
@@ -40,6 +48,12 @@ function devConfig () {
         query: {
           presets: ['es2015']
         }
+      },
+      {
+        //SASS
+        test: /\.scss$/,
+        loader: 'sass-loader?sourceMap',
+        exclude: /node_modules/
       }
     ]
   }
@@ -48,19 +62,26 @@ function devConfig () {
 
   return {
     debug: true,
-    devtool: 'eval',
+    //devtool: 'sourceMap',
     entry: {
-      index: path.join(srcDir, 'index')
+      app:"./app.js",
+      game:"./src/index.js"
     },
     output: {
-      path: distDir,
-      publicPath: 'js/',
-      filename: `bundle.js`,
+      path: path.join(distDir,'js/'),
+      filename: `[name].bundle.js`,
       chunkFilename: '[id].bundle.js'
     },
     resolve: {
       extensions: ['', '.js'],
-      root: [srcDir]
+      root: [
+            path.resolve('./node_modules'),
+            ],
+      alias:{
+        'phaser':phaser,
+        'pixi.js':pixi,
+        'p2': p2,
+      }
     },
     eslint: {
       emitError: true,
