@@ -7,6 +7,8 @@
 @import '~include-media/dist/_include-media.scss';
 
 //COLOR PALETTE
+//alternative palette (http://paletton.com/#uid=53K0L0kkHE04z+edQRpoDsLs0ea)
+
 $blue-green: #267689;
 $blue-green-light: #65AEB5;
 $blue-green-dark: #04545B;
@@ -43,7 +45,7 @@ $breakpoints:(
 }
 
 body{
-    background-color:lightskyblue;
+    background-color:$blue-green-dark;
     font:arial;
     padding:20px 35%;
     .wrapper{

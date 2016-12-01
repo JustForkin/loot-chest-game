@@ -24,6 +24,7 @@ This project uses NPM scripts for building and managing our project through the 
 
 *currently only `dev` works*
 *tip: run the dev script in a new shell*
+_________________________________________________________________________________
 |Name         |Description                                                     |
 |-------------|----------------------------------------------------------------|
 |`dev`        |builds unminified files and starts a dev server `localhost:3000` with browser-sync|

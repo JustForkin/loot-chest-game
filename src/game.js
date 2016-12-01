@@ -30,7 +30,7 @@ class GameState extends Phaser.State {
 
     manager.setUserScale(scale, scale, 0, 0);
   }
-
+  
 }
 
 class RainbowText extends Phaser.Text {
