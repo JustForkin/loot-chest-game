@@ -23,8 +23,9 @@ Make sure you have [Node and NPM](https://nodejs.org/en/). Then you can clone th
 This project uses NPM scripts for building and managing our project through the different stages of development, each of the available scripts will be listed in the table below, and can be run from the parent project folder using `npm run <name>`.
 
 *currently only `dev` works*
+
 *tip: run the dev script in a new shell*
-_________________________________________________________________________________
+
 |Name         |Description                                                     |
 |-------------|----------------------------------------------------------------|
 |`dev`        |builds unminified files and starts a dev server `localhost:3000` with browser-sync|
