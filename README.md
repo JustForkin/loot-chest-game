@@ -14,6 +14,7 @@ this project relies on the following technologies and packages
     - [SASS](http://sass-lang.com/) loader plugin so we can write and compile efficient CSS on the fly.
 - [browser-sync](https://www.browsersync.io/) My #1 choice for rapid prototyping tools, we will use this go create our dev environment.
 - [electron](http://electron.atom.io/) When we're done with our app, we can ship it to OSX and Windows desktop with Electron
+
 ## Getting Started
 
 Make sure you have [Node and NPM](https://nodejs.org/en/). Then you can clone the git repository into your projects folder, open the repo in your terminal and run `npm install` (or if you have yarn installed globally you can just run `yarn`). This will install all project dependancies and create your node_modules folder.
