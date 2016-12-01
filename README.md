@@ -28,8 +28,8 @@ This project uses NPM scripts for building and managing our project through the 
 
 |Name         |Description                                                     |
 |-------------|----------------------------------------------------------------|
-|`dev`        |builds unminified files and starts a dev server `localhost:3000` with browser-sync|
-|`build`      |Run webpack once and builds the beautiful minified production code.|
+|`dev`        |builds the unminified files and starts a local dev server at `localhost:3000` with browser-sync|
+|`build`      |Runs webpack once and builds the beautiful minified production code.|
 
 
 ### And you're off!
@@ -37,3 +37,16 @@ This project uses NPM scripts for building and managing our project through the 
 after running the appropriate command (which in the beginning should always be `npm run dev` by the way) and everything has finished loading, you should be able to go to `localhost:3000` in your browser and see our Phaser hello world example.
 
 From here its all on you! configure your editor with ESlint, and dig in!
+
+## Writing ES6 for Phaser
+
+this section will cover useful tips for those that are new to writing ES6 or Phaser or both!
+
+for example: 
+
+- how to properly use the `import` statement
+- how to access Phaser's global objects
+- which objects should be global, or local
+- understanding webpack's `require` statement (sync & async)
+
+### and more to come!
