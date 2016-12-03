@@ -1,6 +1,7 @@
 import 'script!pixi.js';
 import 'script!p2';
-import Phaser from 'phaser';
+import 'script!phaser';
+const Phaser = window.Phaser;
 
 export default class Game extends Phaser.Game {
 
@@ -28,7 +29,7 @@ class GameState extends Phaser.State {
   gameResized(manager, bounds){
     const scale = Math.min(window.innerWidth / this.game.width, window.innerHeight / this.game.height);
 
-    manager.setUserScale(scale, scale, 0, 0);
+    manager.setUserScale(scale*.8, scale*.8, 0, 0);
   }
   
 }

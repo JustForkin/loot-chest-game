@@ -21,6 +21,14 @@ $blue: #314C97;
 $blue-light: #7489C1;
 $blue-dark: #0E2564;
 
+//GRADIENT MIXIN
+@mixin radial-gradient($first, $second){
+    background: $first; /* Old browsers */
+    background: -moz-radial-gradient(center, ellipse cover, $first 0%, $second 100%); /* FF3.6-15 */
+    background: -webkit-radial-gradient(center, ellipse cover, $first 0%,$second 100%); /* Chrome10-25,Safari5.1-6 */
+    background: radial-gradient(ellipse at center, $first 0%, $second 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$first endColorstr=$second ,GradientType=1 ); /* IE6-9 fallback on horizontal gradient */;
+}
 //MEDIA QUERY BREAKPOINTS
 $breakpoints:(
         phone: 640px, 
@@ -44,13 +52,20 @@ $breakpoints:(
         padding-right:30%;
 }
 
+html{
+    height:100%;
+    background-size:cover;
+    background:radial-gradient($blue-green-light,$blue-green-dark)
+}
+
 body{
-    background-color:$blue-green-dark;
+    height:100%;
     font:arial;
     padding:20px 35%;
     .wrapper{
-        margin:0 15%;
+       // margin:0 15%;
         display:flex;
+        flex-direction:row;
         justify-content:center;
         align-items:center;
     }

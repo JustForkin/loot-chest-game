@@ -50,4 +50,40 @@ for example:
 - which objects should be global, or local
 - understanding webpack's `require` statement (sync & async)
 
+### Importing and exporting
+
+the following piece of code imports the three core components of Phaser using the script-loader feature of webpack.
+the script loader executes the scripts allowing them to set the necessary global variables. You will find it at the top of the game.js file. Understanding how module loading works and when to set global variables is an important part of using this development workflow.
+
+```javascript
+import 'script!pixi.js';
+import 'script!p2';
+import 'script!phaser';
+```
+
+*NOTE:* Phaser is not meant to be used modularly, and it needs these three global variables in place (picture from chromes javascript console). 
+
+![phaser1](https://cloud.githubusercontent.com/assets/10839930/20853550/a4fa9362-b8ba-11e6-8d91-4a6957cb5d48.png)
+
+Another important thing to note here is that asynchronous  importing of modules is not yet supported in ES6 and you will need to use one of the older methods (see below)
+
+```javascript
+require.ensure('module',(callback) => {
+  const game = require('module');
+  done();
+});
+```
+
+OR
+
+```javascript
+require(['modules'], (callback) => {
+  done();
+});
+```
+
+In the case of our example, our webpack entry point is `index.js`, which then asynchronously loads the `game.js` module, inside our `game` module we synchronously `import` the three components of phaser as you see above. Allowing us to load our large game assets seperately, and asynchronously, while doing whatever else we would like to with the page in the meantime.
+
+
+
 ### and more to come!
