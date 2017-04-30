@@ -1,6 +1,19 @@
 # Another Phaser Boilerplate
 
-Phaser Jump is a starting template for game development using [Phaser.](http://phaser.io/)
+Phaser Jump is just another starting template for game development using [Phaser](http://phaser.io/), but it comes setup with some awesome tools for game development and cutting edge javascript technologies.
+
+The early development process goes in general like this:
+
+    - start your dev server (look at getting started below)
+    - work on your project, each time you save one of your source files, a couple of things happen:
+      - babel compiles your ES6 javascript code into more stable javascript.
+      - browser sync automatically reloads the page when the files are reloaded.
+
+This allows you to work naturally, all the while your code gets safely and efficiently compiled, packaged, and reloaded into your dev environment!
+
+When your done prototyping your game, you can minify your bundles, and use Electron to ship your product across multiple devices.
+
+Check out more information on the technologies included below.
 
 ## Technologies
 this project relies on the following technologies and packages
