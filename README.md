@@ -11,7 +11,7 @@ The early development process goes in general like this:
 
 This allows you to work naturally, all the while your code gets safely and efficiently compiled, packaged, and reloaded into your dev environment!
 
-When your done prototyping your game, you can minify your bundles, and use Electron to ship your product across multiple devices.
+When you're done prototyping your game, you can minify your bundles, and use Electron to ship your product across multiple devices.
 
 Check out more information on the technologies included below.
 
