@@ -4,10 +4,10 @@ Phaser Jump is just another starting template for game development using [Phaser
 
 The early development process goes in general like this:
 
-    - start your dev server (look at getting started below)
-    - work on your project, each time you save one of your source files, a couple of things happen:
-      - babel compiles your ES6 javascript code into more stable javascript.
-      - browser sync automatically reloads the page when the files are reloaded.
+- start your dev server (look at getting started below)
+- work on your project, each time you save one of your source files, a couple of things happen:
+    - babel compiles your ES6 javascript code into more stable javascript.
+    - browser sync automatically reloads the page when the files are reloaded.
 
 This allows you to work naturally, all the while your code gets safely and efficiently compiled, packaged, and reloaded into your dev environment!
 
