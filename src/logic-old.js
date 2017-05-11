@@ -109,7 +109,6 @@ export default class MyNewGame {
     }
 
   }
-
   render() {
 
     this.game.debug.text("Drag the sprite and release to launch", 32, 32, 'rgb(0,255,0)');

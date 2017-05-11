@@ -13,6 +13,12 @@ export default class Game extends Phaser.Game {
 
 }
 
+/**
+ * 
+ * 
+ * @class GameState
+ * @extends {Phaser.State}
+ */
 class GameState extends Phaser.State {
 
   create() {
@@ -34,6 +40,12 @@ class GameState extends Phaser.State {
   
 }
 
+/**
+ * 
+ * 
+ * @class RainbowText
+ * @extends {Phaser.Text}
+ */
 class RainbowText extends Phaser.Text {
 
   constructor(game, x, y, text) {
