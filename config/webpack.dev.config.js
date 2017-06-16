@@ -30,13 +30,6 @@ function devConfig () {
   // MODULES (LOADERS) //
 
   const modules = {
-     preLoaders: [
-      {
-        test: /\.jsx?$/,
-        loader: "eslint-loader?{rules:{semi:0}}",
-        exclude: /node_modules/
-      },
-    ],
     loaders: [
       {
         // Babel
@@ -52,10 +45,10 @@ function devConfig () {
       {
         // SASS
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract(
-            'style', // backup loader when not building .css file
-            'css!sass' // loaders to preprocess CSS
-        )
+        loader: ExtractTextPlugin.extract({
+            fallback: 'style-loader', // backup loader when not building .css file
+            use: 'css-loader!sass-loader' // loaders to preprocess CSS
+      })
       }
     ]
   }
@@ -63,7 +56,7 @@ function devConfig () {
   // CONFIG //
 
   return {
-    debug: true,
+    //debug: true,
     //devtool: 'sourceMap',
     entry: {
       index:"./src/index.js",
@@ -76,21 +69,17 @@ function devConfig () {
       chunkFilename: '[id].bundle.js'
     },
     resolve: {
-      extensions: ['', '.js'],
-      root: [
+      extensions: ['.js'],
+      alias: [
             path.resolve('./node_modules'),
             path.resolve('./src')
             ],
-      modulesDirectories: ["src","node_modules"],
+      modules: ["src","node_modules"],
       alias:{
         'phaser':phaser,
         'pixi.js':pixi,
         'p2': p2,
       }
-    },
-    eslint: {
-      emitError: true,
-      emitWarning: true
     },
     module: modules,
     plugins: plugins

@@ -1,6 +1,6 @@
-import 'script!pixi.js';
-import 'script!p2';
-import 'script!phaser';
+import 'script-loader!pixi.js';
+import 'script-loader!p2';
+import 'script-loader!phaser';
 const Phaser = window.Phaser;
 
 export default class Game extends Phaser.Game {
